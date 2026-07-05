@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- ============================================================
+       C&A PARTNERS — Sitio Web Corporativo
+       Autor      : Webflow CO.
+       Versión    : 1.0.0
+       Descripción: Página de presentación empresarial para C&A Partners.
+                    Stack: HTML5 semántico + CSS personalizado + JS vanilla.
+                    Dependencias externas: Bootstrap 5.3, Bootstrap Icons 1.11
+  ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="C&A Partners — Consultoría estratégica y soluciones empresariales de alto nivel." />
+  <title>C&A Partners | Consultoría Estratégica</title>
+
+  <!-- ── Google Fonts ─────────────────────────────────────────── -->
+  <!-- Playfair Display: tipografía display con carácter editorial  -->
+  <!-- Inter: tipografía body limpia y altamente legible            -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- ── Bootstrap 5.3 (CSS) ──────────────────────────────────── -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- ── Bootstrap Icons 1.11 ─────────────────────────────────── -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+
+  <!-- ── Estilos propios ──────────────────────────────────────── -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ============================================================
+       COMPONENTE: NAVBAR
+       Menú de navegación fijo en la parte superior.
+       - Fondo negro (#0A0A0A) con logo tipográfico.
+       - Colapsa en mobile (hamburger Bootstrap).
+       - Al hacer scroll agrega la clase `.scrolled` via JS.
+  ============================================================ -->
+  <nav class="navbar navbar-expand-lg navbar-dark nav-custom fixed-top" id="mainNav">
+    <div class="container">
+
+      <!-- Logo tipográfico de la marca -->
+      <a class="navbar-brand nav-logo" href="#inicio">
+        C<span class="logo-ampersand">&amp;</span>A Partners
+      </a>
+
+      <!-- Botón hamburger para mobile -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navMenu"
+        aria-controls="navMenu"
+        aria-expanded="false"
+        aria-label="Abrir menú"
+        
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links del menú -->
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="#inicio">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="#servicios">Servicios</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="#nosotros">Nosotros</a></li>
+          <!-- CTA destacado en el menú -->
+          <li class="nav-item ms-lg-3">
+            <a class="btn btn-nav-cta" href="#contacto">Hablar con un experto</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+  <!-- /NAVBAR -->
+
+
+  <!-- ============================================================
+       SECCIÓN: HERO
+       Portada principal del sitio.
+       - Fondo: imagen oscurecida + overlay con gradiente.
+       - Titular en Playfair Display con acento dorado.
+       - Dos CTAs: primario (oscuro) y secundario (outline).
+       - Animación de entrada orquestada via CSS + clase `.hero-visible`.
+  ============================================================ -->
+  <section class="hero-section" id="inicio">
+    <!-- Overlay de color que oscurece la imagen de fondo -->
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-9">
+
+          <!-- Etiqueta superior tipo eyebrow -->
+          <p class="hero-eyebrow" data-animate="fade-up" data-delay="0">
+            <i class="bi bi-briefcase me-2"></i>Consultoría Estratégica de Alto Nivel
+          </p>
+
+          <!-- Titular principal con acento editorial -->
+          <h1 class="hero-title" data-animate="fade-up" data-delay="150">
+            Decisiones que<br />
+            <em class="hero-accent">transforman</em> empresas
+          </h1>
+
+          <!-- Subtítulo de apoyo -->
+          <p class="hero-subtitle" data-animate="fade-up" data-delay="300">
+            En C&amp;A Partners acompañamos a organizaciones a alcanzar su máximo
+            potencial a través de estrategia, datos y ejecución impecable.
+          </p>
+
+          <!-- Botones de acción -->
+          <div class="hero-ctas" data-animate="fade-up" data-delay="450">
+            <a href="#servicios" class="btn btn-hero-primary">
+              Ver servicios <i class="bi bi-arrow-down ms-2"></i>
+            </a>
+            <a href="#contacto" class="btn btn-hero-secondary">
+              Contactar ahora
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Indicador de scroll hacia abajo -->
+    <div class="scroll-indicator" aria-hidden="false">
+      <i class="bi bi-chevron-compact-down"></i>
+    </div>
+  </section>
+  <!-- /HERO -->
+
+
+  <!-- ============================================================
+       SECCIÓN: SERVICIOS
+       Tarjetas animadas con hover lift + borde dorado.
+       Cada tarjeta lleva: ícono Bootstrap, título y descripción.
+       Las tarjetas se revelan al entrar al viewport (IntersectionObserver).
+  ============================================================ -->
+  <section class="section-pad" id="servicios">
+    <div class="container">
+
+      <!-- Encabezado de sección -->
+      <div class="section-header text-center mb-5" data-animate="fade-up">
+        <p class="section-eyebrow">Lo que hacemos</p>
+        <h2 class="section-title">Nuestros Servicios</h2>
+        <p class="section-subtitle">
+          Soluciones especializadas para cada etapa del crecimiento empresarial.
+        </p>
+      </div>
+
+      <!-- Grid de tarjetas de servicio -->
+      <div class="row g-4">
+
+        <!-- Tarjeta 1: Consultoría Estratégica -->
+        <div class="col-md-6 col-lg-4" data-animate="fade-up" data-delay="0">
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="bi bi-lightbulb"></i>
+            </div>
+            <h3 class="service-title">Consultoría Estratégica</h3>
+            <p class="service-desc">
+              Analizamos tu modelo de negocio y diseñamos hojas de ruta claras
+              para escalar con rentabilidad y sostenibilidad.
+            </p>
+            <a href="#contacto" class="service-link">
+              Saber más <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Tarjeta 2: Gestión Financiera -->
+        <div class="col-md-6 col-lg-4" data-animate="fade-up" data-delay="100">
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="bi bi-graph-up-arrow"></i>
+            </div>
+            <h3 class="service-title">Gestión Financiera</h3>
+            <p class="service-desc">
+              Optimizamos tus finanzas corporativas, flujos de caja y estructuras
+              de capital para maximizar el retorno de inversión.
+            </p>
+            <a href="#contacto" class="service-link">
+              Saber más <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Tarjeta 3: Transformación Digital -->
+        <div class="col-md-6 col-lg-4" data-animate="fade-up" data-delay="200">
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="bi bi-cpu"></i>
+            </div>
+            <h3 class="service-title">Transformación Digital</h3>
+            <p class="service-desc">
+              Implementamos tecnologías y procesos digitales que reducen costos
+              operativos y mejoran la experiencia del cliente.
+            </p>
+            <a href="#contacto" class="service-link">
+              Saber más <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+      <!-- /row servicios -->
+
+    </div>
+  </section>
+  <!-- /SERVICIOS -->
+
+
+  <!-- ============================================================
+       SECCIÓN: ¿POR QUÉ ELEGIRNOS?
+       Fondo oscuro para contraste visual con la sección anterior.
+       Lista de diferenciadores con ícono de check dorado.
+       Imagen decorativa a la derecha en desktop.
+  ============================================================ -->
+  <section class="why-section" id="nosotros">
+    <div class="container">
+      <div class="row align-items-center g-5">
+
+        <!-- Columna izquierda: texto y lista de ventajas -->
+        <div class="col-lg-6" data-animate="fade-right">
+          <p class="section-eyebrow eyebrow-light">¿Por qué C&amp;A Partners?</p>
+          <h2 class="section-title text-white">
+            Más de una década construyendo ventajas competitivas
+          </h2>
+          <p class="why-lead">
+            No somos una firma de consultoría genérica. Somos un equipo de
+            practitioners que han ejecutado las mismas estrategias que recomendamos.
+          </p>
+
+
+
+          <a href="#contacto" class="btn btn-gold mt-4">
+            Agendar consulta gratuita <i class="bi bi-whatsapp ms-2"></i>
+          </a>
+        </div>
+
+        <!-- Columna derecha: tarjetas decorativas de credenciales -->
+        <div class="col-lg-6" data-animate="fade-left">
+          <div class="credentials-grid">
+
+            <!-- Credencial 1 -->
+            <div class="credential-card">
+              <i class="bi bi-award credential-icon"></i>
+              <h4>Top 10</h4>
+              <p>Consultoras líderes en Colombia según el ranking empresarial 2023</p>
+            </div>
+
+            <!-- Credencial 2 -->
+            <div class="credential-card">
+              <i class="bi bi-globe2 credential-icon"></i>
+              <h4>3 Países</h4>
+              <p>Operaciones activas en Colombia, México y Perú</p>
+            </div>
+
+
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- /¿POR QUÉ ELEGIRNOS? -->
+
+
+
+
+  <!-- ============================================================
+       COMPONENTE: FOOTER
+       Tres columnas: marca + tagline | links rápidos | contacto directo.
+       Línea inferior con derechos.
+  ============================================================ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-5">
+
+        <!-- Columna 1: Marca y misión -->
+        <div class="col-lg-4">
+          <a class="footer-logo" href="#inicio">
+            C<span class="logo-ampersand">&amp;</span>A Partners
+          </a>
+          <p class="footer-tagline">
+            Transformamos organizaciones a través de estrategia, datos
+            y ejecución de clase mundial.
+          </p>
+          <!-- Redes sociales -->
+          <div class="footer-social">
+            <a href="#" class="social-link" aria-label="LinkedIn de C&A Partners">
+              <i class="bi bi-linkedin"></i>
+            </a>
+            <a href="#" class="social-link" aria-label="Instagram de C&A Partners">
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a href="#" class="social-link" aria-label="Twitter / X de C&A Partners">
+              <i class="bi bi-twitter-x"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Columna 2: Navegación rápida -->
+        <div class="col-6 col-lg-2 offset-lg-2">
+          <h5 class="footer-heading">Empresa</h5>
+          <ul class="footer-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#estadisticas">Resultados</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 3: Contacto directo -->
+        <div class="col-6 col-lg-4">
+          <h5 class="footer-heading">Contacto</h5>
+          <ul class="footer-links footer-contact">
+            <li>
+              <i class="bi bi-geo-alt me-2 text-gold"></i>
+              Bogotá, Colombia
+            </li>
+            <li>
+              <i class="bi bi-envelope me-2 text-gold"></i>
+              <a href="mailto:hola@capartners.co">hola@capartners.co</a>
+            </li>
+            <li>
+              <i class="bi bi-whatsapp me-2 text-gold"></i>
+              <a href="https://wa.me/573001234567" target="_blank" rel="noopener">+57 300 123 4567</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Línea divisoria -->
+      <hr class="footer-divider" />
+
+      <!-- Derechos y crédito -->
+      <div class="footer-bottom row align-items-center">
+        <div class="col-md-6">
+          <p class="footer-copy">
+            &copy; <span id="currentYear"></span> C&amp;A Partners. Todos los derechos reservados.
+          </p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <p class="footer-credit">
+            Desarrollado por <a href="#" class="text-gold">Webflow CO.</a>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+  <!-- /FOOTER -->
+
+
+  <!-- ============================================================
+       COMPONENTE: BOTÓN FLOTANTE WHATSAPP
+       Fijo en la esquina inferior derecha.
+       Tooltip descriptivo para accesibilidad.
+       Enlace directo a WhatsApp Business de C&A Partners.
+  ============================================================ -->
+  <a
+    href="https://wa.me/573001234567?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20C%26A%20Partners."
+    class="whatsapp-fab"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Contactar por WhatsApp"
+    title="Chatea con nosotros"
+  >
+    <i class="bi bi-whatsapp"></i>
+  </a>
+
+
+  <!-- ============================================================
+       SCRIPTS — orden importa:
+       1. Bootstrap Bundle (Popper incluido)
+       2. main.js (lógica propia del sitio)
+  ============================================================ -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="main.js"></script>
+
+</body>
+</html>
