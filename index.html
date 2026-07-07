@@ -2,17 +2,18 @@
 <html lang="es">
 <head>
   <!-- ============================================================
-       C&A PARTNERS — Sitio Web Corporativo
+       ESPIMTECH — Sitio Web Corporativo
        Autor      : Webflow CO.
        Versión    : 1.0.0
-       Descripción: Página de presentación empresarial para C&A Partners.
+       Descripción: Página de presentación empresarial para ESPIMTECH.
                     Stack: HTML5 semántico + CSS personalizado + JS vanilla.
                     Dependencias externas: Bootstrap 5.3, Bootstrap Icons 1.11
   ============================================================ -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="C&A Partners — Consultoría estratégica y soluciones empresariales de alto nivel." />
-  <title>C&A Partners | Consultoría Estratégica</title>
+  <meta name="description" content="ESPIMTECH — Consultoría estratégica y soluciones tecnológicas de alto nivel." />
+  <title>ESPIMTECH | Consultoría Estratégica</title>
+  <link rel="icon" type="image/png" href="nav-icon.png" />
 
   <!-- ── Google Fonts ─────────────────────────────────────────── -->
   <!-- Playfair Display: tipografía display con carácter editorial  -->
@@ -40,12 +41,13 @@
        - Colapsa en mobile (hamburger Bootstrap).
        - Al hacer scroll agrega la clase `.scrolled` via JS.
   ============================================================ -->
-  <nav class="navbar navbar-expand-lg navbar-dark nav-custom fixed-top" id="mainNav">
+  <nav class="navbar navbar-expand-lg navbar-light nav-custom fixed-top" id="mainNav">
     <div class="container">
 
-      <!-- Logo tipográfico de la marca -->
+      <!-- Logo de la marca -->
       <a class="navbar-brand nav-logo" href="#inicio">
-        C<span class="logo-ampersand">&amp;</span>A Partners
+        <img src="nav-icon.png" alt="Logo ESPIMTECH" class="brand-logo-img" />
+        <span class="brand-logo-text">ESPIMTECH</span>
       </a>
 
       <!-- Botón hamburger para mobile -->
@@ -70,7 +72,7 @@
           <li class="nav-item"><a class="nav-link nav-link-custom" href="#nosotros">Nosotros</a></li>
           <!-- CTA destacado en el menú -->
           <li class="nav-item ms-lg-3">
-            <a class="btn btn-nav-cta" href="#contacto">Hablar con un experto</a>
+            <a class="btn btn-nav-cta" href="#contacto">Contactanos</a>
           </li>
         </ul>
       </div>
@@ -109,7 +111,7 @@
 
           <!-- Subtítulo de apoyo -->
           <p class="hero-subtitle" data-animate="fade-up" data-delay="300">
-            En C&amp;A Partners acompañamos a organizaciones a alcanzar su máximo
+            En ESPIMTECH acompañamos a organizaciones a alcanzar su máximo
             potencial a través de estrategia, datos y ejecución impecable.
           </p>
 
@@ -227,7 +229,7 @@
 
         <!-- Columna izquierda: texto y lista de ventajas -->
         <div class="col-lg-6" data-animate="fade-right">
-          <p class="section-eyebrow eyebrow-light">¿Por qué C&amp;A Partners?</p>
+          <p class="section-eyebrow eyebrow-light">¿Por qué ESPIMTECH?</p>
           <h2 class="section-title text-white">
             Más de una década construyendo ventajas competitivas
           </h2>
@@ -286,7 +288,8 @@
         <!-- Columna 1: Marca y misión -->
         <div class="col-lg-4">
           <a class="footer-logo" href="#inicio">
-            C<span class="logo-ampersand">&amp;</span>A Partners
+            <img src="footer-icon.png" alt="Logo ESPIMTECH" class="footer-logo-img" />
+            <span class="brand-logo-text">ESPIMTECH</span>
           </a>
           <p class="footer-tagline">
             Transformamos organizaciones a través de estrategia, datos
@@ -294,13 +297,13 @@
           </p>
           <!-- Redes sociales -->
           <div class="footer-social">
-            <a href="#" class="social-link" aria-label="LinkedIn de C&A Partners">
+            <a href="#" class="social-link" aria-label="LinkedIn de ESPIMTECH">
               <i class="bi bi-linkedin"></i>
             </a>
-            <a href="#" class="social-link" aria-label="Instagram de C&A Partners">
+            <a href="#" class="social-link" aria-label="Instagram de ESPIMTECH">
               <i class="bi bi-instagram"></i>
             </a>
-            <a href="#" class="social-link" aria-label="Twitter / X de C&A Partners">
+            <a href="#" class="social-link" aria-label="Twitter / X de ESPIMTECH">
               <i class="bi bi-twitter-x"></i>
             </a>
           </div>
@@ -327,7 +330,7 @@
             </li>
             <li>
               <i class="bi bi-envelope me-2 text-gold"></i>
-              <a href="mailto:hola@capartners.co">hola@capartners.co</a>
+              <a href="mailto:hola@espimtech.co">hola@espimtech.co</a>
             </li>
             <li>
               <i class="bi bi-whatsapp me-2 text-gold"></i>
@@ -345,7 +348,7 @@
       <div class="footer-bottom row align-items-center">
         <div class="col-md-6">
           <p class="footer-copy">
-            &copy; <span id="currentYear"></span> C&amp;A Partners. Todos los derechos reservados.
+            &copy; <span id="currentYear"></span> ESPIMTECH. Todos los derechos reservados.
           </p>
         </div>
         <div class="col-md-6 text-md-end">
@@ -364,10 +367,10 @@
        COMPONENTE: BOTÓN FLOTANTE WHATSAPP
        Fijo en la esquina inferior derecha.
        Tooltip descriptivo para accesibilidad.
-       Enlace directo a WhatsApp Business de C&A Partners.
+       Enlace directo a WhatsApp Business de ESPIMTECH.
   ============================================================ -->
   <a
-    href="https://wa.me/573001234567?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20C%26A%20Partners."
+    href="https://wa.me/573001234567?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20ESPIMTECH."
     class="whatsapp-fab"
     target="_blank"
     rel="noopener noreferrer"
