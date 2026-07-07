@@ -1,6 +1,6 @@
 /**
  * ============================================================
- *  C&A PARTNERS — main.js
+ *  ESPIMTECH — main.js
  *  Autor      : Webflow CO.
  *  Versión    : 1.0.0
  *  Descripción: Lógica interactiva del sitio corporativo.
@@ -323,7 +323,7 @@ function initContactForm() {
 
     } catch (error) {
       // ── Estado "Error" (red o servidor) ──────────────────
-      console.error('[C&A Partners] Error en el envío del formulario:', error);
+      console.error('[ESPIMTECH] Error en el envío del formulario:', error);
 
       submitBtn.innerHTML = BTN_DEFAULT;
       submitBtn.disabled  = false;
@@ -383,5 +383,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initCurrentYear();
 
   // Log de confirmación en desarrollo (remover en producción)
-  console.log('%cC&A Partners JS cargado ✓', 'color:#C9A84C; font-weight:bold;');
+  console.log('%cESPIMTECH JS cargado ✓', 'color:#E30613; font-weight:bold;');
 });
