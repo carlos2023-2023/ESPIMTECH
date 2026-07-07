@@ -30,21 +30,25 @@
       Cambiar aquí afecta todo el sitio de forma consistente.
    ============================================================ */
 :root {
-  /* Paleta principal */
+  /* Paleta principal — Rojo / Negro / Blanco (+ acento azul) */
   --color-black:      #0A0A0A;   /* Negro principal (navbar, texto fuerte) */
-  --color-dark:       #7c817c;   /* Fondo oscuro de secciones alternadas  */
-  --color-dark2:       #ff0000;   /* Fondo oscuro de secciones alternadas  */
+  --color-dark:       #141414;   /* Fondo oscuro de secciones alternadas  */
+  --color-dark2:      #1A0000;   /* Fondo oscuro con tinte rojo profundo  */
   --color-gray-900:   #1A1A1A;   /* Fondos secundarios oscuros            */
   --color-gray-200:   #E8E8E8;   /* Bordes sutiles en fondo blanco        */
   --color-white:      #FFFFFF;   /* Fondo base del sitio                  */
-  --color-off-white:  #F8F8F8;   /* Fondo de tarjetas en zonas claras     */
+  --color-off-white:  #F8F8F8;   /* Fondo de tarjetas en zonas claras     */  
 
-  /* Acento dorado — elemento firma del sitio */
-  --color-gold:       #C9A84C;   /* Dorado principal                      */
-  --color-gold-light: #E8C96A;   /* Dorado más claro para hovers          */
-  --color-gold-dark:  #A8873A;   /* Dorado oscuro para estados activos    */
+  /* Acento rojo — elemento firma del sitio (reemplaza al dorado) */
+  --color-gold:       #ff2525;   /* Rojo principal                        */
+  --color-gold-light: #95272e;  /* Rojo más claro para hovers            */  
+  --color-gold-dark:  #25d3ff;   /* Rojo oscuro para estados activos      */
 
-  /* Texto */
+  /* Acento azul opcional — no muy oscuro, para variar del rojo/negro */
+  --color-blue:       #2E7DF6;   /* Azul medio                            */
+  --color-blue-light: #5B9BFF;   /* Azul claro para hovers                */
+
+  /* Texto */ 
   --color-text-primary:   #0A0A0A;   /* Cuerpo de texto sobre fondo blanco */
   --color-text-muted:     #6B6B6B;   /* Texto secundario / subtítulos      */
   --color-text-light:     #CCCCCC;   /* Texto sobre fondos oscuros         */
@@ -79,7 +83,7 @@
   --shadow-sm:  0 1px 4px rgba(0,0,0,0.06);
   --shadow-md:  0 4px 20px rgba(0,0,0,0.10);
   --shadow-lg:  0 12px 40px rgba(0,0,0,0.15);
-  --shadow-gold: 0 8px 30px rgba(201,168,76,0.25);
+  --shadow-gold: 0 8px 30px rgba(227,6,19,0.25);
 
   /* Transiciones */
   --transition-fast: 0.2s ease;
@@ -233,17 +237,32 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 2px 20px rgba(0,0,0,0.4);
 }
 
-/* Logo tipográfico */
+/* Logo — ícono + texto de marca */
 .nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
   font-family: var(--font-display);
   font-size: var(--text-xl);
   font-weight: 700;
   color: var(--color-black);
   letter-spacing: -0.01em;
-  
 }
 
-/* El ampersand recibe el acento dorado */
+/* Ícono del logo en el navbar */
+.brand-logo-img {
+  height: 34px;
+  width: auto;
+}
+
+/* Texto de la marca junto al ícono */
+.brand-logo-text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* El ampersand recibe el acento rojo (si se usa en algún texto) */
 .logo-ampersand {
   color: var(--color-gold);
 }
@@ -281,13 +300,70 @@ h1, h2, h3, h4, h5, h6 {
   transform: scaleX(1);
 }
 
-/* Botón CTA dentro del navbar */
+/* Botón hamburguesa (mobile) */
+.navbar-toggler {
+  border: 1.5px solid rgba(10,10,10,0.15);
+  border-radius: var(--radius-sm);
+  padding: 0.4rem 0.55rem;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.navbar-toggler:hover {
+  border-color: var(--color-gold);
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 3px rgba(227,6,19,0.20);
+  outline: none;
+}
+
+/* Icono del hamburguesa en negro (visible sobre fondo blanco del navbar) */
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(10,10,10,0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  width: 1.4em;
+  height: 1.4em;
+}
+
+/* Panel desplegable del menú en mobile/tablet */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background-color: var(--color-white);
+    margin-top: 1rem;
+    padding: 1.25rem 0.5rem 0.5rem;
+    border-top: 1px solid var(--color-gray-200);
+  }
+
+  .navbar-nav {
+    gap: 0.25rem;
+  }
+
+  .nav-link-custom {
+    padding: 0.75rem 0.6rem !important;
+    font-size: var(--text-base);
+    border-bottom: 1px solid var(--color-gray-200);
+  }
+
+  .nav-link-custom::after {
+    display: none; /* El subrayado animado no aplica bien en layout vertical */
+  }
+
+  .nav-item.ms-lg-3 {
+    margin-top: 0.75rem;
+    margin-left: 0 !important;
+  }
+
+  .btn-nav-cta {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+}
 .btn-nav-cta {
   font-size: var(--text-sm);
   font-weight: 600;
   padding: 0.5rem 1.25rem;
-  background-color: var(--color-gold);
-  color: var(--color-black) !important;
+  background-color: #ff2525;
+  color: #CCCCCC;
   border-radius: var(--radius-sm);
   border: none;
   transition: background-color var(--transition-fast),
@@ -296,8 +372,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-nav-cta:hover {
   background-color: var(--color-gold-light);
-  transform: translateY(-1px);
+  transform: translateY(-1px); 
 }
+
 
 
 /* ============================================================
@@ -389,7 +466,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   font-size: var(--text-base);
   padding: 0.875rem 2rem;
-  background-color: var(--color-gold);
+  background-color: #95272e;
   color: var(--color-black);
   border: 2px solid var(--color-gold);
   border-radius: var(--radius-sm);
@@ -610,7 +687,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .credential-card:hover {
-  border-color: rgba(201,168,76,0.40);
+  border-color: rgba(227,6,19,0.40);
   transform: translateY(-3px);
 }
 
@@ -656,8 +733,16 @@ h1, h2, h3, h4, h5, h6 {
   font-size: var(--text-2xl);
   font-weight: 700;
   color: var(--color-white);
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
   margin-bottom: 1rem;
+}
+
+/* Ícono del logo en el footer (versión blanca para fondo oscuro) */
+.footer-logo-img {
+  height: 40px;
+  width: auto;
 }
 
 /* Tagline del footer */
